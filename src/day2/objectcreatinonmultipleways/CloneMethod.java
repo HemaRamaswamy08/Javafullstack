@@ -17,7 +17,7 @@ public class CloneMethod implements Cloneable {
 	public static void main(String[] args) {
 
 		try {
-			// creating first objet
+			// creating first object
 			CloneMethod obj = new CloneMethod();
 
 			// creating copyof obj without using new keyword

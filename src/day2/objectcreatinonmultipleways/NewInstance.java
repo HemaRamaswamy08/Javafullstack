@@ -4,12 +4,6 @@ import java.lang.reflect.Constructor;
 
 public class NewInstance {
 
-	/*
-	 * Constructor.newInstance() method is part of Java's Reflection API can be used
-	 * to invoke private constructors, parameterized constructors, or even bypass
-	 * normal object instantiation flow.
-	 */
-
 	private String name;
 
 	public NewInstance() {
@@ -21,6 +15,11 @@ public class NewInstance {
 	}
 
 	public static void main(String[] args) {
+		/*
+		 * Constructor.newInstance() method is part of Java's Reflection API can be used
+		 * to invoke private constructors, parameterized constructors, or even bypass
+		 * normal object instantiation flow
+		 */
 		try {
 			Constructor<NewInstance> constructor = NewInstance.class.getDeclaredConstructor();
 			constructor.setAccessible(true);
