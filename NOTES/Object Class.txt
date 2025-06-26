@@ -1,0 +1,43 @@
+		OBJECT CLASS METHODS
+
+--> Object class in Java is present in java.lang package.
+--> Every class in Java is directly or indirectly derived from the Object class. 
+--> If a class does not extend any other class then it is a direct child class of the Java Object class and if it extends another class then it is indirectly derived. 
+-->There are 13 methods present in  Object class where 11 are unique and 2 are overrideed methods.(Object constructor , getClass, hashCode, equals, clone, toString, notify, notifyAll,wait(), wait(long), wait()(long), wait(long,int), finalize).
+
+1. toString() Method
+		 provides a String representation of an object and is used to convert an object to a String. 
+
+2. hashCode() Method
+		-> For every object, JVM generates a unique number which is a hashcode.
+		-> It returns distinct integers for distinct objects. A common misconception about this method is that the hashCode() method returns the address of the object, which is 		    not correct. 
+		-> It converts the internal address of the object to an integer by using an algorithm.
+		-> The hashCode() method is native because in Java it is impossible to find the address of an object, so it uses native languages like C/C++ to find the address of the 			    object.
+
+3. equals(Object obj) Method
+		-> The equals() method compares the given object with the current object. It is recommended to override this method to define custom equality conditions.
+
+4. getClass() method
+		-> The getClass() method returns the class object of "this" object and is used to get the actual runtime class of the object.
+		-> The returned Class object is the object that is locked by static synchronized methods of the represented class. As it is final so we don't override it.
+Example :		 public class Geeks {
+    				public static void main(String[] args){
+        				Object o = new String("GeeksForGeeks");
+       					Class c = o.getClass();
+        				System.out.println("Class of Object o is: " + c.getName());
+   				 }
+			} //Op ->Class of Object o is: java.lang.String
+
+5. finalize() method
+		->The finalize() method is called just before an object is garbage collected.
+		-> It is called the Garbage Collector on an object when the garbage collector determines that there are no more references to the object. 
+		->We should override finalize() method to dispose of system resources, perform clean-up activities and minimize memory leaks.
+
+6. clone() method 
+		-> The clone() method creates and returns a new object that is a copy of the current object.
+
+7. Concurrency Methods : wait(), notify(), and notifyAll()
+		->These methods are related to thread Communication in Java. They are used to make threads wait or notify others in concurrent programming
+
+
+
