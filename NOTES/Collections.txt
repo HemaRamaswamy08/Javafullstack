@@ -1,0 +1,11 @@
+In java Collection is introduced in version 1.2 and iterablei is introduced in 1.5 but how come collection extends interable interface??
+
+1.  Backward Compatibility and Re-architecting:
+		 When Java 1.5 was released, it introduced Generics and the enhanced `for-each` loop. To make the `for-each` loop work with existing collection types (like `List`, `Set`, etc., which were already part of the `Collection` hierarchy), a new mechanism was needed.
+
+2.  The Role of `Iterable`:The `Iterable` interface was specifically designed to enable the `for-each` loop. Any class that implements `Iterable` (and thus provides an `iterator()` method) can be used with the `for-each` loop.
+
+3.  Retrofitting `Collection`: Instead of forcing all existing `Collection` implementations to be rewritten to directly implement `Iterable`, the Java designers took a more elegant approach: they made the `Collection` interface itself extend `Iterable`.
+
+    Prior to Java 1.5: The `Collection` interface (and its sub-interfaces like `List` and `Set`) already had an `iterator()` method. This method was part of the original design for iterating through collections using an `Iterator` object.
+   

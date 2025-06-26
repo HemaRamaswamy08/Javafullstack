@@ -1,0 +1,22 @@
+ 							FILE HANDLING IN JAVA
+
+-->In Java, with the help of File Class, we can work with files. This File Class is inside the java.io package.
+-->It enables us to store the output of any particular program in a file and allows us to perform certain operations on it. 
+-->In simple words, file handling means reading and writing data to a file.
+
+Create a File
+-->To create a file in Java, you can use the createNewFile() method. This method returns a boolean value: true if the file was successfully created, and false if the file already exists. 
+--> Note that the method is enclosed in a try...catch block. This is necessary because it throws an IOException if an error occurs (if the file cannot be created for some reason):
+
+Read a File
+--> We use the Scanner class to read the contents of the text file we created in the previous chapter:
+
+Delete a File
+--> To delete a file in Java, use the delete() method
+-->You can also delete a folder. However, it must be empty:
+
+NOTE :
+	There are many available classes in the Java API that can be used to read and write files in Java: FileReader, BufferedReader, Files, Scanner, FileInputStream, FileWriter, BufferedWriter, FileOutputStream, etc. Which one to use depends on the Java version you're working with and whether you need to read bytes or characters, and the size of the file/lines etc.
+
+
+
