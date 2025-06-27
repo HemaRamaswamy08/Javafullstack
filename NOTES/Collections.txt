@@ -1,3 +1,28 @@
+						COLLECTIONS
+
+-->Collection(from 1.2)  is a Framework which is extended by Iterable interface(from 1.5 present in java.lang.* package).
+-->It is a Heterogenous collection of objects in a single entity.
+-->It is present in Java util.* package
+
+further it derives 3 more interface
+
+										<<Iterable>>
+											|
+				________________________________________________________________________________
+                                |                                                                     |                                                                      			|
+		         <<List>>                                                         <<Set>>                                                    		        <<Queue>>---Priority Queue
+				!								      !									    			 |
+	---------------------------------------------      		------------------------------------------------------------------			       <<Dqueue>>	---Array Queue
+   	!			!			     !			|						!   				!   
+ ArrayList		  Linked List		Vector 	<<Sorted set>>			Hash Set 			LinkedHash Set
+										!
+									  Tree set
+ 
+1.List --- (ArrayList , Set , Queue - classes)
+2.Set -- (hash set , linkedhash set (classes) sorted interface -->Tree set  class )
+3.Queue - <dqueu>-array queue class and priority queue class
+
+
 In java Collection is introduced in version 1.2 and iterablei is introduced in 1.5 but how come collection extends interable interface??
 
 1.  Backward Compatibility and Re-architecting:
