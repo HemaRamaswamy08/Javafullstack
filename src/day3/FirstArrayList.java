@@ -5,21 +5,31 @@ import java.util.ArrayList;
 public class FirstArrayList {
 
 	public static void main(String[] args) {
-		
-		ArrayList<Object> arr =  new ArrayList<>();
-		arr.add(10);
-		arr.add("hema");
-		arr.add(true);
-		arr.add("nish");
-		arr.addFirst("first");
-		arr.addLast("last");
-		
+
+		ArrayList<Object> arr = new ArrayList<>();
+		arr.add("java");
+		arr.add("Python");
+		arr.add("C");
+		arr.add("C++");
+
+		// Iterating through the list
 		for (Object object : arr) {
 			System.out.println(object);
 		}
+		System.out.println(arr);
+
+		// Accessing elements
+		System.out.println("Aceesing element using index :" + arr.get(3));
+
+		// Updating elements
+		arr.set(1, "JavaScript");
+		System.out.println(arr);
 		
-		System.out.println("At 2nd position "+ arr.get(2));
-		System.out.println("Contains : " + arr.contains("nish"));
+		//removing the element 
+		arr.remove("C++");
+		System.out.println("After remove :" + arr);
+		
+		System.out.println(arr.listIterator());;
 
 	}
 
