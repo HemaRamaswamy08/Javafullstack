@@ -4,19 +4,126 @@
 -->It enables us to store the output of any particular program in a file and allows us to perform certain operations on it. 
 -->In simple words, file handling means reading and writing data to a file.
 
+
+JAVA FILES CLASS METHODS 
+
+Method Name	 				Description							Return Type
+canRead()			 It tests whether the file is readable or not. 					     Boolean
+canWrite()			It tests whether the file is writable or not.					     Boolean
+createNewFile()		It creates an empty file.								     Boolean
+delete()			It deletes a file.										     Boolean
+exists()			It tests whether the file exists or not.						    Boolean
+length()			Returns the size of the file in bytes.						     Long
+getName()			Returns the name of the file.							     String
+list()				Returns an array of the files in the directory.				     String[] 
+mkdir()			Creates a new directory.								    Boolean
+getAbsolutePath()	Returns the absolute pathname of the file.					    String
+
+FILE OPERATATIONS : try Catch exception is must for all the operatations or throws IOException in methd name i.e, main method
+
 Create a File
--->To create a file in Java, you can use the createNewFile() method. This method returns a boolean value: true if the file was successfully created, and false if the file already exists. 
---> Note that the method is enclosed in a try...catch block. This is necessary because it throws an IOException if an error occurs (if the file cannot be created for some reason):
+	-->To create a file in Java, you can use the createNewFile() method. This method returns a boolean value: true if the file was 	successfully created, and false if the file already exists. 
+	--> Note that the method is enclosed in a try...catch block. This is necessary because it throws an IOException if an error 	occurs (if the file cannot be created for some reason):
+--> program : 
+import java.io.File;
+import java.io.IOException;
+
+public class FileCreation {
+
+	public static void main(String[] args) {
+
+		File myFile = new File("D:\\JAVA-New\\JavaAdvancedByRahul\\NOTES");
+		try {
+			if (myFile.createNewFile()) {
+				System.out.println("File created " + myFile.getName());
+			} else {
+				System.out.println("File already exist");
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+
+
 
 Read a File
---> We use the Scanner class to read the contents of the text file we created in the previous chapter:
+	--> We use the Scanner class to read the contents of the text file we created in the previous chapter:use 
+
+ File Obj = new File("myfile.txt");
+            Scanner Reader = new Scanner(Obj);
+          
+            // Traversing File Data
+          	while (Reader.hasNextLine()) {
+                String data = Reader.nextLine();
+                System.out.println(data);
+            }
+
+Write to a File :
+		We use the FileWriter class along with its write() method in order to write some text to the file.
+example:
+		 FileWriter Writer = new FileWriter("myfile.txt");
+
+            // Writing File
+            Writer.write("Files in Java are seriously good!!");
+            Writer.close();
+            
+            System.out.println("Successfully written.");
 
 Delete a File
---> To delete a file in Java, use the delete() method
--->You can also delete a folder. However, it must be empty:
+
+	--> To delete a file in Java, use the delete() method
+	-->You can also delete a folder. However, it must be empty:
+
+example : 
+		  File Obj = new File("myfile.txt");
+        // Deleting File
+        if (Obj.delete()) {
+            System.out.println("The deleted file is : " + Obj.getName());
+        }
+        else {
+            System.out.println(
+                "Failed in deleting the file.");
+        }
 
 NOTE :
 	There are many available classes in the Java API that can be used to read and write files in Java: FileReader, BufferedReader, Files, Scanner, FileInputStream, FileWriter, BufferedWriter, FileOutputStream, etc. Which one to use depends on the Java version you're working with and whether you need to read bytes or characters, and the size of the file/lines etc.
+
+	
+STREAMS IN JAVA
+	In Java, a sequence of data is known as a stream. This concept is used to perform I/O operations on a file. Below are the types of Streams:
+1. Input Stream
+	The Java InputStream class is the superclass of all input streams. The input stream is used to read data from numerous input devices like the keyboard, network, etc. InputStream is an abstract class, and because of this, it is not useful by itself. However, its subclasses are used to read data.
+
+// Creating an InputStream
+InputStream obj = new FileInputStream();
+
+There are several subclasses of the InputStream class, which are as follows:
+
+AudioInputStream
+ByteArrayInputStream
+FileInputStream
+FilterInputStream
+StringBufferInputStream
+ObjectInputStream
+
+2. Output Stream
+	The output stream is used to write data to numerous output devices like the monitor, file, etc. OutputStream is an abstract superclass that represents an output stream. OutputStream is an abstract class and because of this, it is not useful by itself. However, its subclasses are used to write data.
+
+There are several subclasses of the OutputStream class which are as follows:
+
+ByteArrayOutputStream
+FileOutputStream
+StringBufferOutputStream
+ObjectOutputStream
+DataOutputStream
+PrintStream
+
+Creating an OutputStream:
+// Creating an OutputStream
+OutputStream obj = new FileOutputStream();
 
 
 
