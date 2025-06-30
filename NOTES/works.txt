@@ -1,0 +1,26 @@
+ Comparator interface
+
+	-> The Comparator interface in Java is used to sort the objects of user-defined classes. The Comparator interface is present in 	     java.util package.
+	->A comparator object is capable of comparing two objects of the same class. The following function compares obj1 with obj2.
+	Syntax : 
+		public int compare(Object obj1, Object obj2):
+		It will return a negative integer if obj1 < obj2.
+		It will return 0 if both objects are equal.
+		It will return a positive integer if obj1 > obj2.
+	Example : 
+		Suppose we have a list of Student objects, containing fields like roll no, name, address, DOB, etc, and we need to sort them based on roll no or name. We use Comparator here to define that logic separately.
+
+ // Helper class implementing Comparator interface
+class SortbyRoll implements Comparator<Student> 
+{    
+  	// Compare by roll number in ascending order
+    public int compare(Student a, Student b) {
+        return a.rollno - b.rollno;
+    }
+}
+
+Comparable interface
+
+	->The Comparable interface in Java is used to define the natural ordering of objects for a user-defined class. 
+	->It is part of the java.lang package and it provides a compareTo() method to compare instances of the class.
+	-> A class has to implement a Comparable interface to define its natural ordering.
