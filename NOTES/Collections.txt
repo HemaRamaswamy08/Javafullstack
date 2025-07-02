@@ -6,15 +6,16 @@
 
 further it derives 3 more interface
 
-														<<Iterable>>
+														<<Iterable>>1.5
 															 |
-				________________________________________________________________________________________
-                                |                                                                   		  |                                                                      			|
-		         <<List>> 1.2                                                        	   <<Set>> 1.2                                                 		        <<Queue>>---Priority Queue
-				!								        	  !									    		|
-	---------------------------------------------      		------------------------------------------------------------------			       <<Dqueue>>	---Array DQueue
-   	!			!			     !			|						!   				!   
- ArrayList		  Linked List		Vector 	<<Sorted set>>1.2			Hash Set 			LinkedHash Set
+														<<Collections>>1.2
+			        ______________________________________________|___________________________________________
+                                |                                                                   		  |                                                                      			| 1.5
+		         <<List>> 1.2                                                        	   <<Set>> 1.2                                                 		              <<Queue>>---Priority Queue 1.5
+				!								        	  !									    			|
+	---------------------------------------------      		------------------------------------------------------------------			              		<<Dqueue>1.6 
+   	!			!			     !			|						!   				!   							|------Array DQueue 1.6
+ ArrayList		  Linked List		Vector 	<<Sorted set>>1.2			Hash Set 			LinkedHash Set				        LinkedList 1.2
 	1.2			1.2			   1.0			!					     1.2				1.4
 							     |	  	   <<Navigable>>1.6
  							  Stack			|
@@ -37,18 +38,101 @@ further it derives 3 more interface
 	Acessing of elements is by using index 
 	Includes the listIterator() method -which can travers list in both foward and backword directions.
 
-Example :
-		List<Object> arr = new ArrayList<>(); - object creatation 
-		arr.add("java"); -- for adding
-		arr.get(3); -- to get element
-		arr.set(1,"C"); -- for updating
-		arr.remove("C")  or  arr.remove(1);
-		// Iterating through the list
-		for (Object object : arr) {
-			System.out.println(object);
-		}
-2.
+a} ArrayList :
+	->It is part of the java.util package and implements the List interface. introduced in 1.2
+	->inherits Abstract AbstractList and implements List interface
+	-> implements  RandomAccess, Cloneable, java.io.Serializable interface
+	-> It allows duplicate elements , insertion order is maintained
+	-> it allows randomly acess the list
+	-> it is not synchronizedmeans not thread safety
+	->size is not fixed as array , default size is 10 , when it is filled Array is reintialized in such a way that 
+		if initial size is 'n' then it  is reintialized as
+		size = n + n/2 + 1  i.e., 10 + 10/2 + 1 = 16
+	old array values is copied to the new array 	 and old array is dumped
 
+~Key Features 
+	ArrayList is Underlined data Structure Resizable Array or Growable Array.
+	ArrayList Duplicates Are Allowed.
+	Insertion Order is Preserved.
+	Heterogeneous objects are allowed.
+	Null insertion is possible
+
+ArrayList is slower than arrays for certain operations, such as inserting elements in the middle of the list.
+Increased memory usage
+Not thread-safe:
+Performance degradation: as size increases
+
+ex : ArrayList<Integer> arr = new ArrayList<>();
+	arr.add(10);
+	arr.remove(index); --> remove the indexth elem
+	arr.remove(Integer.valueOf(10)); --> remove element 10
+	arr.clear()  -> clear all the elements
+	arr.set(index,value); -> to update
+	Collections.sort(arr) -> maually sort the elments -> Collections is a class which have this sort method
+	arr.contains(value) - >  value is perest or not (true or false )
+	arr.trimToSize() - > The trimToSize() method reduces the capacity of a list to fit exactly the number of items that the list contains.
+	for traversing -> usimg for loop 
+				using enhanced forloop => for(Integer elem : arr){
+										syso(elem); }
+				using iterator = > Iterator<Integer> itr = arr.itiratir();
+				while(itr.hasNext()){
+					syso(itr.next);
+				}
+Time complexity : for adding - O(n)
+			    for removin - O(n) 
+
+USE - ArrayList for storing and accessing data
+How the ArrayList works
+The ArrayList class has a regular array inside it. When an element is added, it is placed into the array. If the array is not big enough, a new, larger array is created to replace the old one and the old one is removed.
+	
+
+b} LinkedList
+	->The LinkedList class is a collection which can contain many objects of the same type, just like the ArrayList.
+	-> intouduced from 1.2 , implements List, Deque, Cloneable, java.io.Serializable
+	-> Underlying data structure is Doubly linked list (Node = previous node addrs - data - next node addres)
+
+How the LinkedList works
+The LinkedList stores its elements in "containers." The list has a link to the first container and each container has a link to the next container in the list. To add an element to the list, the element is placed into a new container and that container is linked to one of the other containers in the list.
+USE -  to manipulate data. like insertion and deletion
+
+It is is a implenentation of Linked list data structure which is a linear data structure where the elements are not stored in contiguous locations, and every element is a separate object with a data part and an address part.
+The elements are linked using pointers and addresses, and each element is known as a node.
+A node cannot be acessed directly , we have to start from head and folloe the link untill its found
+
+methods : addFirst()	->Adds an element to the beginning of the list	
+	addLast() ->	Add an element to the end of the list	
+	removeFirst()	->Remove an element from the beginning of the list	
+	removeLast()	->Remove an element from the end of the list	
+	getFirst()	->Get the element at the beginning of the list	
+	getLast() ->	Get the element at the end of the list
+
+advantage and disadvantage
+->we can increase or decrease it's size whenever we need, so there is no need to set the size of a linkedlist before using it.
+->Adding or removing elements in the middle of a linkedlist is a very simple task. We just need to change the links between nodes without moving other element
+->we can move in forward and backward direction
+
+->finding an element is teme consuming
+->each elemet has extra memory so takes more memory
+
+
+c}Vector
+-> this are legacy classes because prsent since java 1.0
+->implements growable array object
+-> The directly known subclass is Stack.
+
+Key Features of Vector:
+-> It expands as elements are added.
+->Vector class is synchronized in nature means it is thread-safe by default.
+->Like an ArrayList, it maintains insertion order.
+->It allows duplicates and nulls.
+->It implements List, RandomAccess, Cloneable, and Serializable.
+
+The synchronization in Vector can lead to slower performance compared to ArrayList
+
+c.a}Stack
+-> It implements Stack data structure
+-> follows basic principle of LIFO (last-in-first-out)
+->The Stack class extends Vector and provide additional implementation like pop,push,peek,empty,search
 
 
 
