@@ -1,6 +1,7 @@
 package day5.assesments.players;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.TreeSet;
 
 public class Players {
@@ -61,6 +62,12 @@ public class Players {
 		System.out.println(descendingRanking);
 		
 		ArrayList< Players> arr = new ArrayList<Players>();
+		arr.add(player1);
+		arr.add(new Players("nisha",28,10));
+		arr.add(new Players("sam", 30,9));
+		Collections.sort(arr,new DesenComparator());
+		System.out.println("Using ArrayList :"+arr);
+		
 
 	}
 

@@ -3,29 +3,23 @@ package practice;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class AddStudent extends Students {
+import util.UserInput;
 
-	public AddStudent(String name, int rollNumber, String grade) {
-		super(name, rollNumber, grade);
-	}
-
-	public AddStudent() {
-
-	}
+public class AddStudent {
 
 	ArrayList<Students> stu = new ArrayList<Students>();
 
 	public void isUnique(Students s) {
 		boolean grade = true;
 		boolean id = true;
-		if (s.getGrade().equals("A+") || s.getGrade().equals("B+")) {
+		if (s.getGrade().equals("A") || s.getGrade().equals("B")) {
 			grade = true;
-		}else {
-			grade =false;
+		} else {
+			grade = false;
 		}
 		for (Students students : stu) {
 			if (students.getRollNumber() == s.getRollNumber()) {
-				id=false;
+				id = false;
 			}
 		}
 		if (grade && id) {
@@ -51,13 +45,13 @@ public class AddStudent extends Students {
 		
 		AddStudent st = new AddStudent();
 
-		AddStudent stud = new AddStudent("hema", 101, "B+");
-		AddStudent stu2 = new AddStudent("hema", 103, "C");
-		AddStudent stu3 = new AddStudent("Nish", 106, "B+");
-		
-		st.isUnique(stud);
-		st.isUnique(stu2);
-		st.isUnique(stu3);
+		int noOfStudents = UserInput.getuserInputInt("Number of Students");
+		for (int i = 0; i < noOfStudents; i++) {
+			String name = UserInput.getuserInputString("Student Name");
+			int id = UserInput.getuserInputInt("Roll number");
+			String grade = UserInput.getuserInputString("Grade");
+			st.isUnique(new Students(name, id, grade));
+		}
 		st.display();
 
 	}

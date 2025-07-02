@@ -14,5 +14,10 @@ public class UserInput {
 		System.out.println("Enter a "+ num);
 		return SCANNER.nextInt();
 	}
+	
+	public static String getuserInputString(String num) {
+		System.out.println("Enter a "+ num);
+		return SCANNER.next();
+	}
 
 }
