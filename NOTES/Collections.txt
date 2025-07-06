@@ -44,7 +44,7 @@ a} ArrayList :
 	-> implements  RandomAccess, Cloneable, java.io.Serializable interface
 	-> It allows duplicate elements , insertion order is maintained
 	-> it allows randomly acess the list
-	-> it is not synchronizedmeans not thread safety
+	-> it is not synchronized means not thread safety
 	->size is not fixed as array , default size is 10 , when it is filled Array is reintialized in such a way that 
 		if initial size is 'n' then it  is reintialized as
 		size = n + n/2 + 1  i.e., 10 + 10/2 + 1 = 16
@@ -52,7 +52,7 @@ a} ArrayList :
 
 ~Key Features 
 	ArrayList is Underlined data Structure Resizable Array or Growable Array.
-	ArrayList Duplicates Are Allowed.
+	Duplicates Are Allowed.
 	Insertion Order is Preserved.
 	Heterogeneous objects are allowed.
 	Null insertion is possible
@@ -97,7 +97,7 @@ USE -  to manipulate data. like insertion and deletion
 
 It is is a implenentation of Linked list data structure which is a linear data structure where the elements are not stored in contiguous locations, and every element is a separate object with a data part and an address part.
 The elements are linked using pointers and addresses, and each element is known as a node.
-A node cannot be acessed directly , we have to start from head and folloe the link untill its found
+A node cannot be acessed directly , we have to start from head and follow the link untill its found
 
 methods : addFirst()	->Adds an element to the beginning of the list	
 	addLast() ->	Add an element to the end of the list	
@@ -111,7 +111,7 @@ advantage and disadvantage
 ->Adding or removing elements in the middle of a linkedlist is a very simple task. We just need to change the links between nodes without moving other element
 ->we can move in forward and backward direction
 
-->finding an element is teme consuming
+->finding an element is time consuming
 ->each elemet has extra memory so takes more memory
 
 
@@ -126,6 +126,7 @@ Key Features of Vector:
 ->Like an ArrayList, it maintains insertion order.
 ->It allows duplicates and nulls.
 ->It implements List, RandomAccess, Cloneable, and Serializable.
+->By default capacity is 10 and every time count of value increases vector size is doubled  i.e.,  initially 10 then 20  
 
 The synchronization in Vector can lead to slower performance compared to ArrayList
 
@@ -133,6 +134,8 @@ c.a}Stack
 -> It implements Stack data structure
 -> follows basic principle of LIFO (last-in-first-out)
 ->The Stack class extends Vector and provide additional implementation like pop,push,peek,empty,search
+
+
 
 
 

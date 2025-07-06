@@ -1,0 +1,7 @@
+Balanced Tree:
+
+	 -> difference between the height of the left and the right subtree for each node is either 0 or 1. 
+To check if a Binary tree is balanced we need to check three conditions :
+	->The absolute difference between heights of left and right subtrees at any node should be less than 1.
+	->For each node, its left subtree should be a balanced binary tree.
+	->For each node, its right subtree should be a balanced binary tree.
