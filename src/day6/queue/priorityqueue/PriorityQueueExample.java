@@ -1,29 +1,25 @@
 package day6.queue.priorityqueue;
 
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class PriorityQueueExample {
-	
+
 	public static void main(String[] args) {
-		
-		PriorityQueue<Integer> pri= new PriorityQueue<Integer>();
-		pri.offer(29);
-		pri.offer(99);
-		pri.offer(26);
-		pri.offer(102);
-		pri.offer(78);
-		pri.offer(289);
-		
+
+		Queue<Integer> pri = new PriorityQueue<Integer>();
+		pri.add(10);
+		pri.add(20);
 		System.out.println(pri);
-		/*  
-		 * peek() - > return the top element but does not remove it
-		 * poll()-> return the top element and removes it from queue remove it
-		 * remove(number)->if present remove it and return true
-		*/
-		System.out.println(pri.peek());
-		System.out.println(pri.remove(100));
-		System.out.println(pri.poll());
+		pri.offer(30); // add element at tail --> throw error if queue is full(use with ArrayBlockingQueue to fix queue)
+		pri.add(60); // add element at tail(rear) --> return false if queue is full
 		System.out.println(pri);
+		PriorityQueue<Integer> pq = new PriorityQueue<>(12);
+		for (int i = 0; i < 13; i++) {
+			pq.add(i);
+		}
+		System.out.println(pq);
+	
 	}
 
 }

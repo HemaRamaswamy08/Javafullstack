@@ -11,7 +11,6 @@ public class FirstArrayList {
 		arr.add("Python");
 		arr.add("C");
 		arr.add("C++");
-
 		// Iterating through the list
 		for (Object object : arr) {
 			System.out.println(object);
@@ -30,6 +29,7 @@ public class FirstArrayList {
 		System.out.println("After remove :" + arr);
 		
 		System.out.println(arr.listIterator());;
+		System.out.println();
 
 	}
 
