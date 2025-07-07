@@ -2,6 +2,7 @@ package musicplayer.controller;
 
 import java.util.InputMismatchException;
 
+import musicplayer.exception.DigitsNotAllowedException;
 import musicplayer.exception.InvalidMovieIdException;
 import musicplayer.exception.NoSongsAvailableException;
 import musicplayer.service.MusicServiceImplmentation;
@@ -37,7 +38,12 @@ public class MusicApp {
 		switch (choice) {
 		case 1 -> {
 			MusicPlayer info = songDetails();
-			song.create(info);
+			try {
+				song.create(info);
+			}catch(DigitsNotAllowedException e) {
+				System.err.println("An Error Occured : " + e.getMessage() );
+			}
+			
 			choice();
 		}
 

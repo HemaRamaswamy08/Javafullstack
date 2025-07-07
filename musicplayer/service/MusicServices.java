@@ -1,12 +1,13 @@
 package musicplayer.service;
 
 import musicplayer.controller.MusicPlayer;
+import musicplayer.exception.DigitsNotAllowedException;
 import musicplayer.exception.InvalidMovieIdException;
 import musicplayer.exception.NoSongsAvailableException;
 
 public interface MusicServices {
 
-	void create(MusicPlayer song);
+	void create(MusicPlayer song) throws DigitsNotAllowedException;
 
 	void display() throws NoSongsAvailableException;
 
