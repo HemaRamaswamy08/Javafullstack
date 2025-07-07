@@ -1,0 +1,31 @@
+											MAP (1.2) 
+
+->Map Interface is part of the java.util package and represents a mapping between a key and a value.
+-> It is not a part of Collections
+->No Duplicates in Keys: Keys should be unique, but values can be duplicated.
+->Allows only one null as key in hashMap , linkedHashMap
+->The three primary classes that implement these interfaces are,
+	HashMap
+	TreeMap
+	LinkedHashMap 
+														<<Map>>1.2
+															|
+			        ____________________________________________ ___________________________________________
+                                |                                                                   		  |                                                                      			| 1.2
+		         Identiry Map1.2                                                        Weak HashMap 1.2                                                		      <<Sorted Map>>
+												        	      |       								    			|
+			              									   LinkedHashMap  1.4								<<Navigable Map>1.6 
+																											|
+																										TreeMap 1.2
+
+
+1.HashMap
+	->Internally uses Hashing (similar to Hashtable in Java).
+	->from 1.2 present in java.util
+	->One null Key and Many null alues can be used
+	->Keys and value can't be primitive datatype.  Key in Hashmap is valid if it implements hashCode() and equals() method , it should also be immutable (immutable custom object ) so that hashcode and equality remains constant.
+	-> implements Serializable, Cloneable,
+	-> HashMaps are not ordered, 
+	->HashMaps are not thread-safe,
+	-> initial capacity of 16 and a load factor of 0.75.
+   	

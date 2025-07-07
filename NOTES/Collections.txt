@@ -27,7 +27,8 @@ further it derives 3 more interface
 3.Queue - <dqueu>-array queue class and priority queue class
 
 
-1. LIST 
+												 LIST 
+
 	-> The List Interface in Java extends the Collection Interface and is a part of the java.util package. It is used to store the ordered collections of elements. 
 	->we can organize and manage the data sequentially.
 ~ Key Features:
@@ -135,11 +136,6 @@ c.a}Stack
 -> follows basic principle of LIFO (last-in-first-out)
 ->The Stack class extends Vector and provide additional implementation like pop,push,peek,empty,search
 
-
-
-
-
-
 In java Collection is introduced in version 1.2 and iterable  introduced in 1.5 but how come collection extends interable interface??
 
 1.  Backward Compatibility and Re-architecting:
@@ -151,3 +147,100 @@ In java Collection is introduced in version 1.2 and iterable  introduced in 1.5 
 
     Prior to Java 1.5: The `Collection` interface (and its sub-interfaces like `List` and `Set`) already had an `iterator()` method. This method was part of the original design for iterating through collections using an `Iterator` object.
    
+
+											           SET
+
+The Set Interface is present in java.util package and extends the Collection interface. 
+	->No Specific Order:  (Exceptions: LinkedHashSet - because of doubly linked data structure or Hash table and Linked list  and TreeSet - becuse of Navigable interface).
+	->Allows One Null Element.
+	->Implementation Classes: HashSet, LinkedHashSet, and TreeSet.
+	->Thread-Safe Alternatives: For thread-safe operations, use ConcurrentSkipListSet or wrap a set using Collections.synchronizedSet().
+
+The set interface allows the users to perform the basic mathematical operation on the set.Possible operatations are intersection,union,difference
+
+1. HashSet - from 1.2 
+	->Can store the Null values.
+	->doesn't maintain  insertion order
+	->Uses HashMap (implementation of hash table data structure) internally.	
+	->implements Serializable and Cloneable interfaces.
+	->HashSet is not thread-safe. So to make it thread-safe, synchronization is needed externally.
+	->initially capacity is 16
+	->load factor is 0.75
+	->Before storing an Object, HashSet checks whether there is an existing entry using hashCode() and equals() methods. 
+storage :
+	Actually the value we insert in HashSet acts as a key to the map Object and for its value, java uses a constant variable(present). So in the key-value pair, all the values will be the same. 
+	HashSet s = new HashSet() --> creates map = new HashMap(k,v); in  HashSet() class 
+	s.add("geeks"); ---> method boolean add("geeks");
+							map.put("geeks");  -- > in storage Geeks stored as Key and value will PRESENT 
+like this only unique elements is stored.
+
+2.LinkedHashSet 
+	-> It  is an ordered version of HashSet  i.e extended from Hashset
+	->combines the functionality of a HashSet with a LinkedList to maintain the insertion order of elements.
+	->Stores unique elements only.
+	->Maintains insertion order.
+	->Provides faster iteration compared to HashSet.
+	->Allows null elements.
+
+3. TreeSet
+	-> It is a implementation of SortedSet interference
+	->uses a Tree(red - black tree) for storage. 
+	-> The ordering of the elements is maintained by a set using their natural ordering
+	->  does not allow duplicate elements. 
+	->It doesn't allow null values and throws NullPointerException because while insertion of null, it gets compared to the existing elements, and null cannot be compared to any value.(from JDK 7 before 1 null can be stored if more are stored then it throws  NullPointerException)
+	-> TreeSet implements the NavigableSet interface and provides additional methods to navigate the set (e.g., higher(), lower(), ceiling(), and floor()).
+	->It is not thread safe.
+	->TreeSet serves as an excellent choice for storing large amounts of sorted information 
+	->Objects in a TreeSet are stored in a sorted and ascending order.
+An object is said to be comparable if and only if the corresponding class implements a Comparable interface.
+String, StringBuffer class and all the Wrapper classes already implements Comparable interface Hence, we DO NOT get a ClassCastException. But if we are creating TreeSet of user defined classes or any Java classes which does not implements comparable interface we will get ClassCastException. to solve this problem we can either implement Comparable to our user defined class or we can pass Comparator object in Constructor while creating the set. because By Default Tree set follows Natiral ordering 
+
+
+
+												QUEUE - 1.5
+
+->It stores and processes the data in order means elements are inserted at the end and removed from the front.
+->implementations, like PriorityQueue,do not allow null elements.
+->  The insertion order is not retained in the PriorityQueue.  The elements are stored based on the priority order which is ascending by default. 
+Implementation Classes:
+	LinkedList
+	PriorityQueue
+	ArrayDeque
+	ConcurrentLinkedQueue (for thread-safe operations)
+->Commonly used for task scheduling, message passing, and buffer management in applications.
+	->add(element): Adds an element to the rear of the queue. If the queue is full, it throws an exception.
+	   offer(element): Adds an element to the rear of the queue. If the queue is full, it returns false
+
+	->remove(): Removes and returns the element at the front of the queue. If the queue is empty, it throws an exception.
+	   poll(): Removes and returns the element at the front of the queue. If the queue is empty, it returns null.
+
+	->element(): Returns the element at the front of the queue without removing it. If the queue is empty, it throws an exception.
+	   peek(): Returns the element at the front of the queue without removing it. If the queue is empty, it returns null.
+
+
+	PRIORITY QUEUE (1.5)
+->It is part of the java.util package.extracts AbstractQueue and implements serializable
+-> It  processes elements based on their priority rather than the FIFO (First-In-First-Out) concept of a Queue.
+->Size of the Priority Queue is dynamic
+->PriorityQueue does not permit null.
+->It  is not thread-safe, Java provides PriorityBlockingQueue class that implements the BlockingQueue interface to use in a Java multithreading environment.
+->The queue retrieval operations poll, remove, peek, and element access the element at the head of the queue.
+->It provides O(log(n)) time for add and poll methods.
+->default initial capacity
+
+
+Dequeue 
+	-> sub Interface of Queuw , from 1.6, present in java.util
+	->Deque is related to the double-ended queue that supports adding or removing elements from either end of the data structure. 
+	->It can either be used as FIFO or LIFO
+	
+ArrayDeque - implements Dequeue
+	->It generally provides faster operations than LinkedList because it does not have the overhead of node management.
+	->ArrayDeque class uses a resizable array to store its elements, which means that it can grow and shrink dynamically 
+	->The ArrayDeque class is a lightweight data structure that does not require additional overhead, such as linked list nodes, making it a good choice for scenarios where memory is limited.
+	->Not Thread safe
+
+ArrayDequeue (1.6)
+
+
+	
