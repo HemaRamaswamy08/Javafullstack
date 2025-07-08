@@ -6,8 +6,9 @@ public class FirstArrayList {
 
 	public static void main(String[] args) {
 
-		ArrayList<Object> arr = new ArrayList<>();
-		arr.add("java");
+		ArrayList<Object> arr = new ArrayList<>(); // In this Empty array is created i.e size is 0
+		arr.add("java"); // once add method used capacity will be 10
+		System.out.println();
 		arr.add("Python");
 		arr.add("C");
 		arr.add("C++");

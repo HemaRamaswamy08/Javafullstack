@@ -1,9 +1,17 @@
 package praveensir;
 
-public class Xyz {
+public class Xyz extends Abc{
 
-	public void producer() {
+	public static void main(String[] args) {
+		
+		Check a = new Xyz();
+		//a.method1();
+		
+		
+		
+		
 		
 	}
+	
 	
 }

@@ -47,8 +47,8 @@ a} ArrayList :
 	-> it allows randomly acess the list
 	-> it is not synchronized means not thread safety
 	->size is not fixed as array , default size is 10 , when it is filled Array is reintialized in such a way that 
-		if initial size is 'n' then it  is reintialized as
-		size = n + n/2 + 1  i.e., 10 + 10/2 + 1 = 16
+		newCapacity = oldCapacity  + (oldCapacity >>1)
+		
 	old array values is copied to the new array 	 and old array is dumped
 
 ~Key Features 
