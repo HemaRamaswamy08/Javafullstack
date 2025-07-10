@@ -227,6 +227,17 @@ Implementation Classes:
 ->The queue retrieval operations poll, remove, peek, and element access the element at the head of the queue.
 ->It provides O(log(n)) time for add and poll methods.
 ->default initial capacity
+-> By default follow min-heap order means snaller value have high priority
+->while displaying data Order is not maintained only in Poll() method order is maintained
+--> If any buit in class is implementing Priority Queue then Comparator or Comparable is must or else ClassCastException like in TreeSet
+-->Iterator is used in order to remove any data because ForEach only retrive the data ,doesn't have remove method
+problem Statement :
+	It is a shallow copy means refer to the same queue 
+	PriorityQueue<Integer> arr --> consider it stores 1 o 10 values
+	PriorityQueue<Integer> duplicate = arr;  --> It points to the sameabove array , whatever changes made up here it will be implicated in original array also
+	PriorityQueue<Integer> duplicate = new PriorityQueue<Integer> (arr.size()); --> this  creates new array
+	duplicate.addAll(arr) -- > It is deep copy means separate array with same values as original array 
+
 
 
 Dequeue 
