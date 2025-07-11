@@ -24,7 +24,7 @@ public class OptionalClass {
 	public String getName() {
 		return name;
 	}
-	public Optional getEmail() {
+	public Optional<String> getEmail() {
 		return email;
 	}
 	
@@ -37,9 +37,4 @@ public class OptionalClass {
 		System.out.println(t.getEmail().orElse("Email Id is Not Present"));
 		
 	}
-	
-	
-	
-	
-
 }
