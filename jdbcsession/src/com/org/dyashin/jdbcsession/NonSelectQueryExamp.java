@@ -2,19 +2,16 @@ package com.org.dyashin.jdbcsession;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.mysql.cj.jdbc.Driver;
 
-public class PreparedStmtExmp {
-
+public class NonSelectQueryExamp {
 	public static void main(String[] args) {
-
 		Connection conn = null;
-		PreparedStatement pstmt = null;
+		Statement stmt = null;
 
 		ResultSet rs = null;
 		// 1. Load the Driver
@@ -29,28 +26,11 @@ public class PreparedStmtExmp {
 			System.out.println("dburl >>" + dburl);
 			conn = DriverManager.getConnection(dburl);
 			// 3. issue the sql queries via conn
-			String query = "Select * from users where user_id = ? ;";
-			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, Integer.parseInt(args[0]));
-			rs = pstmt.executeQuery();
+			String query = "Insert into users values (1008, 'Moon') ";
 
-			while (rs.next()) {
-				int userid = rs.getInt("user_id");
-				String userName = rs.getString("username");
-				System.out.println("User Id :" + userid);
-				System.out.println("User Name :" + userName);
-
-			}
-			String query2 = "Select * from employee ;";
-			Statement stmt = conn.createStatement();
-			ResultSet rs2 = stmt.executeQuery(query2);
-			
-			while(rs2.next()) {
-				int employeeId = rs2.getInt("employee_id");
-				String employeeName = rs2.getString("employee_name");
-				System.out.println("Employee Id ==> " + employeeId);
-				System.out.println("Employee Name ==> " + employeeName);
-			}
+			stmt = conn.createStatement();
+			int count = stmt.executeUpdate(query);
+			System.out.println("Number of rows effected :" + count);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -60,8 +40,8 @@ public class PreparedStmtExmp {
 				if (conn != null) {
 					conn.close();
 				}
-				if (pstmt != null) {
-					pstmt.close();
+				if (stmt != null) {
+					stmt.close();
 				}
 				if (rs != null) {
 					rs.close();

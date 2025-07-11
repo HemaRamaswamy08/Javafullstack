@@ -6,11 +6,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import com.mysql.cj.jdbc.Driver;
+
 
 public class MyFirstJDBC {
 
-	public static void main(String[] args) throws ClassNotFoundException {
+	public static void main(String[] args){
 
 		Connection conn = null;
 		Statement stmt = null;
@@ -20,18 +22,18 @@ public class MyFirstJDBC {
 
 		try {
 			//Method1 : to load driver
-//			Driver driver = new Driver();
-//			DriverManager.registerDriver(driver);
-//			
+			Driver driver = new Driver();
+			DriverManager.registerDriver(driver);			
 			// Method 2  LOAD DRIVER
-			 Class.forName("com.mysql.cj.jdbc.Driver");
+			 //Class.forName("com.mysql.cj.jdbc.Driver");
 
 			//2. get the db connection via driver
 			String dburl = "jdbc:mysql://localhost:3306/java?user=root&password=root";
 			System.out.println("dburl >>" + dburl);
 			conn = DriverManager.getConnection(dburl);
+			System.out.println("Connection Interface implementation class is :"+conn.getClass());
 			//3. issue the sql queries via conn
-			String query = "select * from employee";
+			String query = "SELECT * from employee";
 
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
@@ -66,6 +68,7 @@ public class MyFirstJDBC {
 				if (rs != null) {
 					rs.close();
 				}
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
