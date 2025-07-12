@@ -1,0 +1,26 @@
+							GARBAGE COLLECTION
+
+->Garbage collection in Java is an automatic memory management process that helps Java programs run efficiently.
+->Java garbage collection is an automatic process that manages memory in the heap.
+-> It identifies which objects are still in use (referenced) and which are not in use (unreferenced).
+->It removes the objects that are unreachable (no longer referenced).
+->The programmer does not need to mark objects to be deleted explicitly. Garbage collection is implemented within the JVM.
+
+Java heap is divided into generations:
+1.Young Generation: In this new objects are allocated.
+2.Old Generation: In this long-lived objects are stored.
+
+There are generally four ways to make an object eligible for garbage collection.
+Nullifying the reference variable (obj = null).
+Re-assigning the reference variable (obj = new Object()).
+An object created inside the method (eligible after method execution).
+Island of Isolation (Objects that are isolated and not referenced by any reachable objects).
+
+The garbage collector runs at the JVM's discretion, and you cannot predict when it will occur
+We can also request JVM to run Garbage Collector. There are two ways to do it : 1 . System.gc(): This static method requests the JVM to perform garbage collection.
+2. Using Runtime.getRuntime().gc(): This method also requests garbage collection through the Runtime class.
+-->Note: There is no guarantee that the garbage collector will run immediately after these calls.
+
+Advantage 
+	It makes java memory-efficient because the garbage collector removes the unreferenced objects from heap memory.
+It is automatically done by the garbage collector (a part of JVM), so we don't need extra effort.

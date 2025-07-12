@@ -1,0 +1,100 @@
+
+SQL RELATATIOS
+
+1. One-to-One Relationship
+Definition: Each record in Table A is associated with one and only one record in Table B, and vice versa.
+For example: Tables users and user_profiles, where each user has a single corresponding profile.
+CREATE TABLE users (
+    user_id INT PRIMARY KEY,
+    username VARCHAR(50));
+CREATE TABLE user_profiles (
+    profile_id INT PRIMARY KEY,
+    user_id INT UNIQUE,
+    profile_data VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES users(user_id));
+Values : 
+INSERT INTO users (user_id, username) VALUES (101, 'alice_smith');
+INSERT INTO users (user_id, username) VALUES (102, 'bob_johnson');
+INSERT INTO users (user_id, username) VALUES (103, 'charlie_brown');
+
+INSERT INTO user_profiles (profile_id, user_id, profile_data) VALUES (1, 101, 'Alice is a software engineer.');
+INSERT INTO user_profiles (profile_id, user_id, profile_data) VALUES (2, 102, 'Bob is a graphic designer.');
+INSERT INTO user_profiles (profile_id, user_id, profile_data) VALUES (3, 103, 'Charlie enjoys photography.');
+
+2.One-to-Many Relationship
+Definition: Each record in Table A can be associated with multiple records in Table B, but each record in Table B is associated with only one record in Table A.
+For example: Tables departments and employees, where each department can have multiple employees, but each employee belongs to one department.
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(50));
+
+INSERT INTO departments (department_id, department_name) VALUES (1, 'Sales');
+INSERT INTO departments (department_id, department_name) VALUES (2, 'Marketing');
+INSERT INTO departments (department_id, department_name) VALUES (3, 'Engineering');
+
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(50),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(department_id));
+
+INSERT INTO employees (employee_id, employee_name, department_id) VALUES (1001, 'John Doe', 1);
+INSERT INTO employees (employee_id, employee_name, department_id) VALUES (1002, 'Jane Smith', 2);
+INSERT INTO employees (employee_id, employee_name, department_id) VALUES (1003, 'Peter Jones', 3);
+
+
+3. Many-to-Many Relationship
+Definition: Each record in Table A can be associated with multiple records in Table B, and vice versa.
+For example: Tables students and courses, where each student can enroll in multiple courses, and each course can have multiple students.
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR(50));
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(50));
+CREATE TABLE student_courses (
+    student_id INT,
+    course_id INT,
+    PRIMARY KEY (student_id, course_id),
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id));
+
+values :
+-- Insertions for the 'students' table
+INSERT INTO students (student_id, student_name) VALUES (201, 'Alice Wonderland');
+INSERT INTO students (student_id, student_name) VALUES (202, 'Bob The Builder');
+INSERT INTO students (student_id, student_name) VALUES (203, 'Charlie Chaplin');
+
+-- Insertions for the 'courses' table
+INSERT INTO courses (course_id, course_name) VALUES (101, 'Mathematics');
+INSERT INTO courses (course_id, course_name) VALUES (102, 'Physics');
+INSERT INTO courses (course_id, course_name) VALUES (103, 'Computer Science');
+
+-- Insertions for the 'student_courses' table (linking students to courses)
+INSERT INTO student_courses (student_id, course_id) VALUES (201, 101); -- Alice takes Mathematics
+INSERT INTO student_courses (student_id, course_id) VALUES (201, 102); -- Alice takes Physics
+INSERT INTO student_courses (student_id, course_id) VALUES (202, 101); -- Bob takes Mathematics
+INSERT INTO student_courses (student_id, course_id) VALUES (203, 103); -- Charlie takes Computer Science
+
+4.Many-to-One Relationship
+Definition: Multiple records in table B can be associated with one record in table A.
+Example: Table Teachers and Courses, many courses can be taught by single teacher.
+CREATE TABLE Teachers (
+    teacher_id INT PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255)
+);
+CREATE TABLE Subject (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(255),
+    teacher_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES Teachers(teacher_id)
+);
+
+INSERT INTO Teachers (teacher_id, first_name, last_name) VALUES (1, 'Mr.', 'Davis');
+INSERT INTO Teachers (teacher_id, first_name, last_name) VALUES (2, 'Ms.', 'White');
+INSERT INTO Teachers (teacher_id, first_name, last_name) VALUES (3, 'Dr.', 'Green');
+
+INSERT INTO Subject (course_id, course_name, teacher_id) VALUES (401, 'Algebra I', 1);
+INSERT INTO Subject (course_id, course_name, teacher_id) VALUES (402, 'Biology Basics', 2);
+INSERT INTO Subject (course_id, course_name, teacher_id) VALUES (403, 'World History', 3);

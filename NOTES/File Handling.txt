@@ -126,4 +126,21 @@ Creating an OutputStream:
 OutputStream obj = new FileOutputStream();
 
 
+PROPERTY FILE 
+	-> A properties file is a simple key-value pair file used in Java to store configuration settings (like DB URL, username, messages, etc.)
+
+Properties prop = new Properties();	Creates a Properties object
+FileInputStream fis = new FileInputStream("config.properties");	Opens the file
+prop.load(fis);	Loads the properties file into memory
+prop.getProperty("key")	Gets the value of the given key
+
+FileOutputStream("fileName")	Opens/creates the .properties file for writing
+setProperty("key", "value")	Sets a property value
+store(outputStream, "Comment")	Saves properties to file -> If file already present it overrides the file  if not cretes new file
+
+
+
+Why we need a Properties file?
+	->You can work without a properties file, but the advantage here is whenever you alter this file you don't worry about the compilation.
+ Suppose you are creating a Java web-based project in that you are using some image path and that image path is used in different modules of your project. So, if you want to alter something in the path you have to change it in every module instead of what we can do, we can create a properties file in that we can have the parameters for the path of the image inside this. So, now we don't need to alter every module. So, this is the advantage of using a properties file.
 
