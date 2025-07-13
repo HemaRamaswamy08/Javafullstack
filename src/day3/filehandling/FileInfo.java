@@ -8,6 +8,8 @@ public class FileInfo {
 		
 		File myFile = new File("trial.txt");
 		if(myFile.exists()) {
+			
+			
 			System.out.println("File Name : " + myFile.getName());
 			System.out.println("Path of File: "+ myFile.getAbsolutePath());
 			System.out.println("Can Read ?? :"+myFile.canRead());
