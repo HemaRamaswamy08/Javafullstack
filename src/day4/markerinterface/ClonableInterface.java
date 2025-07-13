@@ -26,7 +26,12 @@ public class ClonableInterface implements Cloneable {
 		this.model = model;
 	}
 
-	@Override
+	/*
+	 * Since Cloneable is a marker interface (it has no methods), it only signals to
+	 *  Object.clone() that cloning is allowed. But without overriding clone(), 
+	 *  you can’t actually use it properly in most practical scenarios
+	*/
+	@Override // From Object class
 	public ClonableInterface clone() {
 		try {
 			return (ClonableInterface) super.clone();

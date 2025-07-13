@@ -30,7 +30,7 @@ public class RandomAccessInterface {
 		long startTime = System.nanoTime();
 		accessElements(arr);
 		long arrayListTime = System.nanoTime() - startTime;
-
+		
 		startTime = System.nanoTime();
 		accessElements(li);
 		long listTime = System.nanoTime() - startTime;
