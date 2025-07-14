@@ -5,7 +5,7 @@ import util.UserInput;
 
 public class MusicPlayerUser {
 
-	public static void function() {
+	public static void function()   {
 		System.out.println();
 		int choice = 0;
 		do {
