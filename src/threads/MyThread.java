@@ -41,7 +41,8 @@ public class MyThread extends Thread {
 		for (int i = 0; i < 10; i++) {
 			System.out.println("Main thread");
 		}
-//		myThread.start(); -->java.lang.IllegalThreadStateException
+		// myThread.start(); //-->java.lang.IllegalThreadStateException 
+		//==>thread can only be started once if we want we have to create new instance of it
 
 	}
 
