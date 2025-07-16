@@ -13,6 +13,10 @@ public class SimpleConnectionPool {
 
 	private static final LinkedList<Connection> pool = new LinkedList<>();
 
+	private SimpleConnectionPool() {
+
+	}
+
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -20,7 +24,6 @@ public class SimpleConnectionPool {
 				Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 				pool.add(conn);
 			}
-			System.out.println("Connection pool initialized with " + POOL_SIZE + " connections.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

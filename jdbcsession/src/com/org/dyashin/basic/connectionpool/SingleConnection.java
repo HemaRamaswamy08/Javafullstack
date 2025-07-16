@@ -14,7 +14,7 @@ public class SingleConnection {
 	private SingleConnection() throws SQLException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			this.connection  = DriverManager.getConnection(DBURL, USER, PASSWORD);
+			this.connection = DriverManager.getConnection(DBURL, USER, PASSWORD);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

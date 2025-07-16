@@ -41,7 +41,7 @@ public class Account {
 			result = prep.executeQuery();
 			if (result.next()) {
 				userDetails = new User(result.getInt("user_id"), result.getString("username"));
-			}else {
+			} else {
 				userDetails = new User(id, " -- Data Not available");
 			}
 			return userDetails;

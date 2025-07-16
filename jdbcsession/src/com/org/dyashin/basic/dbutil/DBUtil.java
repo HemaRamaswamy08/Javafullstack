@@ -11,8 +11,6 @@ import java.util.List;
 
 import com.org.dyashin.basic.Employee;
 
-import exception.DataNotFoundExceptionn;
-
 public class DBUtil {
 
 	static List<Employee> allEmp = new ArrayList<Employee>();
@@ -40,9 +38,12 @@ public class DBUtil {
 						rs.getString("employee_email"), rs.getLong("mobile_no")));
 			}
 			if (allEmp.isEmpty()) {
-				throw new DataNotFoundExceptionn("Data Not Found");
+				throw new DataNotFoundException("Data Not Found");
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (DataNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -68,10 +69,13 @@ public class DBUtil {
 				return;
 			}
 			if (!rs.next()) {
-				throw new DataNotFoundExceptionn("Data Not Found");
+				throw new DataNotFoundException("Data Not Found");
 			}
 
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (DataNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

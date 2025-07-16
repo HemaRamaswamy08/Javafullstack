@@ -7,8 +7,8 @@ import java.sql.Statement;
 
 public class Main {
 	public static void main(String[] args) {
-		Connection conn = null;
 		Statement stmt = null;
+		Connection conn = null;
 		ResultSet rs = null;
 
 		try {
@@ -21,9 +21,10 @@ public class Main {
 			}
 			System.out.println(SimpleConnectionPool.availableConnections());
 
-//			Connection connTwo = SimpleConnectionPool.getConnection();
-//			Connection conThree = SimpleConnectionPool.getConnection();
-//			System.out.println(SimpleConnectionPool.availableConnections());
+//		Connection connTwo = SimpleConnectionPool.getConnection();
+//		Connection conThree = SimpleConnectionPool.getConnection();
+		
+			System.out.println("After 1 use :"+SimpleConnectionPool.availableConnections());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -35,6 +36,7 @@ public class Main {
 				if (stmt != null)
 					stmt.close();
 				SimpleConnectionPool.returnConnection(conn);
+				System.out.println(SimpleConnectionPool.availableConnections());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
