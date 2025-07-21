@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import musicplayer.controller.MusicPlayer;
-import musicplayer.exception.DigitsNotAllowedException;
 import musicplayer.exception.InvalidMovieIdException;
 import musicplayer.exception.NoSongsAvailableException;
 
@@ -12,10 +11,7 @@ public class MusicServiceImplmentation implements MusicServices {
 
 	ArrayList<MusicPlayer> music = new ArrayList<MusicPlayer>();
 
-	public void create(MusicPlayer song) throws DigitsNotAllowedException {
-		if(song.getName().matches("\\d+") || song.getMovieName().matches("\\d+")) {
-			throw new DigitsNotAllowedException("A Movie name or Song cannot be a only numbers");
-		}
+	public void create(MusicPlayer song) {
 		for (MusicPlayer musicPlayer : music) {
 			if (musicPlayer.getId() == song.getId()) {
 				System.out.println("Song already presentS");

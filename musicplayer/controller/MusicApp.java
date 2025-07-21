@@ -2,7 +2,6 @@ package musicplayer.controller;
 
 import java.util.InputMismatchException;
 
-import musicplayer.exception.DigitsNotAllowedException;
 import musicplayer.exception.InvalidMovieIdException;
 import musicplayer.exception.NoSongsAvailableException;
 import musicplayer.service.MusicServiceImplmentation;
@@ -28,7 +27,7 @@ public class MusicApp {
 				isvalid = true;
 			} catch (InputMismatchException e) {
 				System.err.println("An Error occured : Please enter a proper input");
-				UserInput.SCANNER.next();
+				UserInput.SCANNER.next(); 
 			}
 		} while (!isvalid);
 
@@ -36,18 +35,13 @@ public class MusicApp {
 
 	public static void function(int choice) {
 		switch (choice) {
-		case 1 -> {
+		case 1:
 			MusicPlayer info = songDetails();
-			try {
-				song.create(info);
-			}catch(DigitsNotAllowedException e) {
-				System.err.println("An Error Occured : " + e.getMessage() );
-			}
-			
+			song.create(info);
 			choice();
-		}
+			break;
 
-		case 2 -> {
+		case 2:
 			int value = UserInput.getUserInputInt("Movie Id");
 			String name = UserInput.getUserInputString(" movie name or song name to update");
 			try {
@@ -58,17 +52,17 @@ public class MusicApp {
 				System.err.println("An error occured :" + e.getMessage());
 			}
 			choice();
-		}
-		case 3 -> {
+			break;
+		case 3:
 			try {
 				song.display();
 			} catch (NoSongsAvailableException e) {
 				System.out.println(e.getMessage());
 			}
 			choice();
-		}
+			break;
 
-		case 4 -> {
+		case 4:
 			int movieId = UserInput.getUserInputInt("Movie Id to delete");
 			try {
 				song.delete(movieId);
@@ -76,18 +70,19 @@ public class MusicApp {
 				System.err.println("An error occured : " + e.getMessage());
 			}
 			choice();
-		}
-
-		case 5 -> {
+			break;
+		case 5:
+			name = UserInput.getUserInputString(" Movie name or song name  to search a song");
 			try {
-				String name = UserInput.getUserInputString(" Movie name or song name  to search a song");
 				song.search(name);
-			} catch (NoSongsAvailableException e) {
+			}catch (NoSongsAvailableException e) {
 				System.out.println("Your List is empty");
 			}
 			choice();
-		}
-		case 6 -> System.out.println("THank You for Using");
+			break;
+		case 6:
+			System.out.println("THank You for Using");
+			break;
 		}
 	}
 
