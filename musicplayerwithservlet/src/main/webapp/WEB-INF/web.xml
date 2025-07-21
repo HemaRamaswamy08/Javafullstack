@@ -1,0 +1,57 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-class>com.dyashin.servlets.MusicInfo</servlet-class>
+		<servlet-name>MusicInfo</servlet-name>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MusicInfo</servlet-name>
+		<url-pattern>/submit</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-class>com.dyashin.servlets.DeleteServlet</servlet-class>
+		<servlet-name>DeleteServlet</servlet-name>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteServlet</servlet-name>
+		<url-pattern>/deleteSong</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-class>com.dyashin.servlets.SearchMusicServlet</servlet-class>
+		<servlet-name>SearchMusicServlet</servlet-name>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchMusicServlet</servlet-name>
+		<url-pattern>/searchSong</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-class>com.dyashin.servlets.DisplayAllSongsServlet</servlet-class>
+		<servlet-name>DisplayAll</servlet-name>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisplayAll</servlet-name>
+		<url-pattern>/displayAllSongs</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-class>com.dyashin.servlets.UpdateMusicServlet</servlet-class>
+		<servlet-name>UpdateMusic</servlet-name>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateMusic</servlet-name>
+		<url-pattern>/updateSong</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>display page</welcome-file> <welcome-file>displayAllSongs</welcome-file>
+	</welcome-file-list>
+
+
+</web-app>
