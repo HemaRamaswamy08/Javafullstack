@@ -76,6 +76,21 @@ public class DisplayAllSongsServlet extends HttpServlet {
 		out.println("}");
 		out.println("</style>");
 		out.println("</style>");
+
+
+		String status = req.getParameter("status");
+		out.println("<script>");
+		if ("deleted".equals(status)) {
+		    out.println("window.onload = function() { alert('Song deleted successfully!'); };");
+		} else if ("notFound".equals(status)) {
+		    out.println("window.onload = function() { alert('No song found with that ID.'); };");
+		} else if ("invalidId".equals(status)) {
+		    out.println("window.onload = function() { alert('Invalid ID provided.'); };");
+		} else if ("error".equals(status)) {
+		    out.println("window.onload = function() { alert('Something went wrong while deleting the song.'); };");
+		}
+		out.println("</script>");
+
 		out.println("</head><body><div class=\"container\">");
 		out.println("<h1>Welcome to Aptify <h2>");
 		

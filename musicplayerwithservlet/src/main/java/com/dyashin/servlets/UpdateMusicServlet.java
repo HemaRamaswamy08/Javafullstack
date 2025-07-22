@@ -134,7 +134,7 @@ public class UpdateMusicServlet extends HttpServlet {
 			}
 			out.println("<div class=\"button-group\">");
 			out.println("<p><a href=\"update.jsp\">Update another song</a></p>");
-			out.println("<p><a href=\"home.html\">Go to Home</a></p>");
+			out.println("<p><a href=\"displayAllSongs\">Go to Home</a></p>");
 			out.println("</div>");
 
 		} catch (Exception e) {
@@ -146,7 +146,7 @@ public class UpdateMusicServlet extends HttpServlet {
 			out.println("<p class=\"error-message\">Error details: " + e.getMessage() + "</p>");
 			out.println("<div class=\"button-group\">");
 			out.println("<p><a href=\"update.jsp\">Go back to update form</a></p>");
-			out.println("<p><a href=\"home.html\">Go to Home</a></p>");
+			out.println("<p><a href=\"displayAllSongs\">Go to Home</a></p>");
 			out.println("</div>");
 			// Log the exception for server-side debugging
 			throw new ServletException("Database or Servlet Error during update", e);
