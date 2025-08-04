@@ -1,7 +1,5 @@
 package jpql;
 
-import com.mysql.cj.Query;
-
 import dto.StudentInfo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
