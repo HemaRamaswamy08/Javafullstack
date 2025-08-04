@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> 
+        <context:component-scan base-package="com.dyashin.springcode"/>
+										<!--  Base package should be correct -->
+	<bean id="car" class="com.dyashin.springcode.annotation.Car">
+		</bean>
+
+	<bean id="bus" class="com.dyashin.springcode.annotation.Bus">
+		</bean>
+
+	<bean id="discount" class="com.dyashin.springcode.FestivalDiscount"></bean>
+	<bean id="mycar" class="com.dyashin.springcode.Car"></bean>
+	<bean id="mybus" class="com.dyashin.springcode.Bus"></bean>
+	
+<!--  -->
+	<bean id="bikeengine" class="com.dyashin.springcode.autowires.Bike" autowire="byName"></bean>
+	<bean id="engine" class="com.dyashin.springcode.autowires.BikeEngine"></bean>
+	
+	
+	<!-- <bean id= "value" class="com.dyashin.springcode.annotation.Student">
+		<constructor-arg value="hema"></constructor-arg>
+		<constructor-arg value="101"></constructor-arg>
+	</bean>  		CONSTRUCTOR INJECTION-->
+	
+	<bean id="studentsetainjection" class="com.dyashin.springcode.annotation.Student">
+		<property name="name" value="nisha"></property>
+		<property name="age" value="102"></property>
+	</bean>
+
+</beans>
