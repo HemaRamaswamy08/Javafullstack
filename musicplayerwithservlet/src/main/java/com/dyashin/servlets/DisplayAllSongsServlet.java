@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class DisplayAllSongsServlet extends HttpServlet {
+	
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -21,7 +22,7 @@ public class DisplayAllSongsServlet extends HttpServlet {
 		PrintWriter out = res.getWriter();
 
 		// Database connection details
-		String jdbcURL = "jdbc:mysql://localhost:3306/java";
+		String jdbcURL = "jdbc:mysql://localhost:3306/jdbc";
 		String dbUser = "root";
 		String dbPassword = "root";
 

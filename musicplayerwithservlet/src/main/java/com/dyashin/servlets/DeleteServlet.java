@@ -21,7 +21,7 @@ public class DeleteServlet extends HttpServlet {
 		PrintWriter out = res.getWriter(); // Get writer for potential error output
 
 		// Database connection details
-		String jdbcURL = "jdbc:mysql://localhost:3306/java";
+		String jdbcURL = "jdbc:mysql://localhost:3306/jdbc";
 		String dbUser = "root";
 		String dbPassword = "root";
 

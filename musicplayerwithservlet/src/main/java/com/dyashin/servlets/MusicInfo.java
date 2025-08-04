@@ -19,7 +19,7 @@ public class MusicInfo extends HttpServlet {
         String movie = req.getParameter("movie");
         int year = Integer.parseInt(req.getParameter("year"));
 
-        String jdbcURL = "jdbc:mysql://localhost:3306/java";
+        String jdbcURL = "jdbc:mysql://localhost:3306/jdbc";
         String dbUser = "root";
         String dbPassword = "root";
         Connection conn = null;

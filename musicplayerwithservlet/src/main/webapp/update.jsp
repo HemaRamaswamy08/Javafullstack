@@ -110,10 +110,14 @@
         const urlParams = new URLSearchParams(window.location.search);
         // Get the 'id' parameter
         const musicId = urlParams.get('id');
+        const newTitle = urlParams.get('newTitle');
 
         // If an ID is present, set it as the value of the musicId input field
         if (musicId) {
             document.getElementById('musicId').value = musicId;
+        }
+        if (musicName) {
+            document.getElementById('musicName').value = musicName;
         }
     </script>
 </body>

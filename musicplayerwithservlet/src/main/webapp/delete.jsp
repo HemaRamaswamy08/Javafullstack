@@ -97,7 +97,7 @@
         <a href="home.html" class="back-link">Back to Home</a>
     </div>
     <script type="text/javascript">
-    	const urlParams = new URLSearchParams(window.location.search); // Corrected typo
+    	const urlParams = new URLSearchParams(window.location.search); 
         const musicId = urlParams.get('id');
          
         if(musicId){

@@ -19,7 +19,7 @@ public class UpdateMusicServlet extends HttpServlet {
 		res.setCharacterEncoding("UTF-8");
 		PrintWriter out = res.getWriter();
 
-		String jdbcURL = "jdbc:mysql://localhost:3306/java";
+		String jdbcURL = "jdbc:mysql://localhost:3306/jdbc";
 		String dbUser = "root";
 		String dbPassword = "root";
 
