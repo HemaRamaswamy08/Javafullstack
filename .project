@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>springboot</name>
+=======
+	<name>restaurentwithspring</name>
+>>>>>>> master
 	<comment></comment>
 	<projects>
 	</projects>
@@ -11,7 +15,16 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+=======
+			<name>org.eclipse.wst.common.project.facet.core.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+>>>>>>> master
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -22,7 +35,16 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+<<<<<<< HEAD
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+=======
+		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
+		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
+		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+>>>>>>> master
 	</natures>
 </projectDescription>
